@@ -2,10 +2,12 @@ angular.module('App')
 .service('UserService', ['$http', function($http){
 
   var self = this;
-  var url = '/api/users';
+  var usersUrl = '/api/users';
+  var userUrl = '/api/users/:id';
   this.users = [];
+  this.user = '';
 
-  $http.get(url)
+  $http.get(usersUrl)
   .then(function(response) {
     self.users = response.data;
   });
@@ -14,20 +16,19 @@ angular.module('App')
     return users;
   };
 
+  this.getUser = function(id){
+    console.log(id);
+    for (var i = 0; i < self.users.length; i++) {
+      if(self.users[i].id === id){
+        return self.users[i];
+      }
+    }
+  };
+
 
   // $http.post(url, user)
   // .then(function(response){
   //   console.log('user added to database');
   // });
-
-  // this.getUsers = function($http){
-  //   var self = this;
-  //   return $http.get('http://localhost:8080/api/users')
-  //   .then(function(response) {
-  //     return response.data;
-  //   });
-  // };
-
-// UserService.setUrl('http://localhost:8080/api/users');
 
 }]);

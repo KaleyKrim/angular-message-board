@@ -1,18 +1,10 @@
 angular.module('App')
-.controller('UsersController', ['UserService', '$scope', function(UserService, $scope){
+.controller('UsersController', ['UserService', '$scope', '$routeParams', function(UserService, $scope, $routeParams){
+
+  $scope.param1 = parseInt($routeParams.param1);
 
   $scope.UserService = UserService;
 
-  // $scope.users = UserService.users;
-
-  // $scope.getUsers = function(){
-  //   UserService.getUsers();
-  // };
-
-  // UserService.getUsers()
-  // .then(function(users){
-  //   $scope.users = users;
-  // });
-
+  $scope.getUser = UserService.getUser;
 
 }]);

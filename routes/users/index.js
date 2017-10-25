@@ -30,13 +30,13 @@ router.post('/', (req, res) => {
   });
 });
 
-router.get('/:id', (req, res) => {
-  let userId = req.params.id;
+// router.get('/:id', (req, res) => {
+//   let userId = req.params.id;
 
-  return User.findById(userId)
-  .then(user => {
-    return res.send(user);
-  });
-});
+//   return User.findById(userId)
+//   .then(user => {
+//     return res.send(user);
+//   });
+// });
 
 module.exports = router;
