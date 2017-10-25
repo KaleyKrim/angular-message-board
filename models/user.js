@@ -6,10 +6,14 @@ module.exports = function(sequelize, DataTypes){
     password: DataTypes.STRING
   });
 
-  // user.associate = function(models){
-  //   user.hasMany(models.topic, {as: 'author'});
-  //   user.hasMany(models.message);
-  // };
+  user.associate = function(models){
+    user.hasMany(models.message, {
+      foreignKey: {
+        name: 'author_id',
+        allowNull: false
+      }
+    });
+  };
 
   return user;
 };

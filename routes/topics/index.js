@@ -5,5 +5,36 @@ const router = express.Router();
 const db = require('../../models');
 const Topic = db.topic;
 
+router.get('/', (req, res) => {
+  return Topic.findAll()
+  .then(topics => {
+    return res.send(topics);
+  });
+});
+
+router.post('/', (req, res) => {
+  let topicName = req.body.name;
+  let userId = req.user.id;
+
+  return Topic.create( { name: topicName, created_by: userId})
+  .then(newTopic => {
+    return res.send(newTopic);
+  });
+});
+
+router.put('/:id', (req, res) => {
+  let newInfo = req.body;
+  let topicId = req.params.id;
+
+  return Topic.findById(topicId)
+  .then(topic => {
+    return Topic.update(newInfo, {
+      where: [{id: topicId}]
+    })
+    .then(topic => {
+      return res.send(topic);
+    });
+  });
+});
 
 module.exports = router;

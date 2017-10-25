@@ -6,11 +6,12 @@ const bodyParser = require('body-parser');
 const port = process.env.port || 8080;
 const db = require('./models');
 const apiRoutes = require('./routes/index');
+const path = require('path');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
-const redis = require('connect-redis')(session);
+// const redis = require('connect-redis')(session);
 
 const User = db.user;
 const Message = db.message;
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.use(session({
-  store: new redis(),
+  // store: new redis(),
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false
@@ -72,7 +73,16 @@ function isAuthenticated(req, res, next){
   }
 }
 
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/gallery',
+  failureRedirect: '/login'
+}));
+
 app.use('/api', apiRoutes);
+
+app.get('*', (req, res) => {
+  res.sendFile('index.html', { root: path.join(__dirname, '/public')});
+});
 
 app.listen(port, () => {
   db.sequelize.sync({ force: true });

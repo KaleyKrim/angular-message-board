@@ -11,7 +11,7 @@ const saltRounds = 12;
 router.get('/', (req, res) => {
   return User.findAll()
   .then(users => {
-    return res.send(users);
+    return res.json(users);
   });
 });
 
@@ -23,6 +23,7 @@ router.post('/', (req, res) => {
         password: hash
       })
       .then((user) => {
+        console.log(user);
         res.redirect('/');
       });
     });
