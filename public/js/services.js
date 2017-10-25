@@ -3,21 +3,22 @@ angular.module('App')
 
   var self = this;
   var usersUrl = '/api/users';
-  var userUrl = '/api/users/:id';
+  // var userUrl = '/api/users/:id';
   this.users = [];
-  this.user = '';
 
-  $http.get(usersUrl)
-  .then(function(response) {
-    self.users = response.data;
+  this.getAll = function($http){
+    $http.get(usersUrl)
+    .then(function(response) {
+      self.users = response.data;
   });
+
+  };
 
   this.getUsers = function(){
     return users;
   };
 
   this.getUser = function(id){
-    console.log(id);
     for (var i = 0; i < self.users.length; i++) {
       if(self.users[i].id === id){
         return self.users[i];
@@ -25,10 +26,17 @@ angular.module('App')
     }
   };
 
+  this.addUser = function(newUser) {
+    var user = {
+      username: newUser.username
+    };
+    console.log('user', user);
+    self.users.push(user);
 
-  // $http.post(url, user)
-  // .then(function(response){
-  //   console.log('user added to database');
-  // });
+    $http.post(usersUrl, user)
+    .then(function(response) {
+      console.log('Added user to backend database!');
+    });
+  };
 
 }]);

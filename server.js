@@ -8,75 +8,75 @@ const db = require('./models');
 const apiRoutes = require('./routes/index');
 const path = require('path');
 
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const session = require('express-session');
+// const passport = require('passport');
+// const LocalStrategy = require('passport-local').Strategy;
+// const session = require('express-session');
 // const redis = require('connect-redis')(session);
 
 const User = db.user;
 const Message = db.message;
 const Topic = db.topic;
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.use(session({
-  // store: new redis(),
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false
-}));
+// app.use(session({
+//   // store: new redis(),
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: false
+// }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-passport.serializeUser((user, done) => {
-  return done(null, {
-    id: user.id,
-    username: user.username
-  });
-});
+// passport.serializeUser((user, done) => {
+//   return done(null, {
+//     id: user.id,
+//     username: user.username
+//   });
+// });
 
-passport.deserializeUser((user, done) => {
-  User.findOne({ where: { id: user.id }})
-  .then(user => {
-    return done(null, {
-      id: user.id,
-      username: user.username
-    });
-  });
-});
+// passport.deserializeUser((user, done) => {
+//   User.findOne({ where: { id: user.id }})
+//   .then(user => {
+//     return done(null, {
+//       id: user.id,
+//       username: user.username
+//     });
+//   });
+// });
 
-passport.use(new LocalStrategy(function(usrname, password, done){
-  User.findOne({ where: { username: username } })
-  .then(user => {
-    if(user === null){
-      return done(null, false, {message: 'bad username or password'});
-    }else{
-      bcrypt.compare(password, user.password)
-      .then(res => {
-        if(res){
-          return done(null, user);
-        }else{
-          return done(null, false, {message: 'bad username or password'});
-        }
-      });
-    }
-  });
-}));
+// passport.use(new LocalStrategy(function(usrname, password, done){
+//   User.findOne({ where: { username: username } })
+//   .then(user => {
+//     if(user === null){
+//       return done(null, false, {message: 'bad username or password'});
+//     }else{
+//       bcrypt.compare(password, user.password)
+//       .then(res => {
+//         if(res){
+//           return done(null, user);
+//         }else{
+//           return done(null, false, {message: 'bad username or password'});
+//         }
+//       });
+//     }
+//   });
+// }));
 
-function isAuthenticated(req, res, next){
-  if(req.isAuthenticared()){
-    next();
-  }else{
-    res.redirect('/');
-  }
-}
+// function isAuthenticated(req, res, next){
+//   if(req.isAuthenticared()){
+//     next();
+//   }else{
+//     res.redirect('/');
+//   }
+// }
 
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/gallery',
-  failureRedirect: '/login'
-}));
+// app.post('/login', passport.authenticate('local', {
+//   successRedirect: '/gallery',
+//   failureRedirect: '/login'
+// }));
 
 app.use('/api', apiRoutes);
 

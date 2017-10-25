@@ -1,6 +1,5 @@
 angular.module('App')
-.controller('UsersController', ['UserService', '$scope', '$routeParams', function(UserService, $scope){
-
+.controller('RegisterController', ['UserService', '$scope', '$routeParams', function(UserService, $scope, $routeParams){
 
   $scope.UserService = UserService;
 

@@ -7,11 +7,15 @@ var app = angular.module('App')
   $routeProvider
   .when('/users/:param1', {
     templateUrl: 'views/user.html',
-    controller: 'UsersController'
+    controller: 'UserController'
   })
   .when('/users', {
     templateUrl: '/views/users.html',
     controller: 'UsersController'
+  })
+  .when('/register', {
+    templateUrl: '/views/register.html',
+    controller: 'RegisterController'
   })
   .otherwise({
     template: '<h1>Helooo</h1>'
