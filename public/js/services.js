@@ -3,27 +3,35 @@ angular.module('App')
 
   var self = this;
   var usersUrl = '/api/users';
-  // var userUrl = '/api/users/:id';
+  var userUrl = '/api/users/:id';
   this.users = [];
+  this.user = '';
 
-  this.getAll = function($http){
+  this.getAll = function(){
     $http.get(usersUrl)
     .then(function(response) {
       self.users = response.data;
-  });
-
+    });
   };
 
   this.getUsers = function(){
     return users;
   };
 
-  this.getUser = function(id){
-    for (var i = 0; i < self.users.length; i++) {
-      if(self.users[i].id === id){
-        return self.users[i];
-      }
-    }
+  // this.getUser = function(id){
+  //   console.log('id', id);
+  //   for (var i = 0; i < self.users.length; i++) {
+  //     if(self.users[i].id === id){
+  //       return self.users[i];
+  //     }
+  //   }
+  // };
+
+  this.getUser = function(url){
+    $http.get(url)
+    .then(function(response){
+      self.user = response.data;
+    });
   };
 
   this.addUser = function(newUser) {

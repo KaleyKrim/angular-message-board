@@ -4,12 +4,6 @@ angular.module('App')
 
   $scope.UserService = UserService;
 
-  $scope.newUser = {
-    username: ''
-  };
-
-  $scope.addUser = function(e){
-    UserService.addUser($scope.newUser);
-  };
+  UserService.getAll();
 
 }]);

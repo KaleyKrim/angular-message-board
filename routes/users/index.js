@@ -15,15 +15,6 @@ router.get('/', (req, res) => {
   });
 });
 
-// router.post('/', (req, res) => {
-//   let username = req.body.username;
-
-//   return User.create( { username: username})
-//   .then(newUser => {
-//     return res.json(newUser);
-//   });
-// });
-
 router.post('/', (req, res) => {
   console.log('req', req);
   bcrypt.genSalt(saltRounds, function(err, salt){
@@ -39,13 +30,13 @@ router.post('/', (req, res) => {
   });
 });
 
-// router.get('/:id', (req, res) => {
-//   let userId = req.params.id;
+router.get('/:id', (req, res) => {
+  let userId = req.params.id;
 
-//   return User.findById(userId)
-//   .then(user => {
-//     return res.send(user);
-//   });
-// });
+  return User.findById(userId)
+  .then(user => {
+    return res.send(user);
+  });
+});
 
 module.exports = router;
