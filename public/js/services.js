@@ -28,9 +28,10 @@ angular.module('App')
 
   this.addUser = function(newUser) {
     var user = {
-      username: newUser.username
+      username: newUser.username,
+      password: newUser.password
     };
-    console.log('user', user);
+
     self.users.push(user);
 
     $http.post(usersUrl, user)

@@ -1,10 +1,11 @@
 angular.module('App')
-.controller('RegisterController', ['UserService', '$scope', '$routeParams', function(UserService, $scope, $routeParams){
+.controller('RegisterController', ['UserService', '$scope', function(UserService, $scope){
 
   $scope.UserService = UserService;
 
   $scope.newUser = {
-    username: ''
+    username: '',
+    password: ''
   };
 
   $scope.addUser = function(e){
