@@ -1,0 +1,8 @@
+<div>
+  All Topics:
+  <ul>
+    <li ng-repeat="topic in TopicService.topics">
+      <a href="/topics/{{ topic.id }}">{{ topic.name }}</a> Id: {{ topic.id }}
+    </li>
+  </ul>
+</div>

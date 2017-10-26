@@ -77,8 +77,13 @@ function isAuthenticated(req, res, next){
 
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/gallery',
-  failureRedirect: '/login'
+  failureRedirect: '/'
 }));
+
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
 
 app.use('/api', apiRoutes);
 

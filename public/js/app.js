@@ -21,8 +21,16 @@ var app = angular.module('App')
     templateUrl: '/views/login.html',
     controller: 'LoginController'
   })
+  .when('/topics/:param2', {
+    templateUrl: '/views/topic.html',
+    controller: 'TopicController'
+  })
+  .when('/', {
+    templateUrl: '/views/home.html',
+    controller: 'TopicsController'
+  })
   .otherwise({
-    template: '<h1>Helooo</h1>'
+    template: '<h1>nOPE</h1>'
   });
 
   $locationProvider.html5Mode(true);

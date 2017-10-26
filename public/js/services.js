@@ -8,9 +8,6 @@ angular.module('App')
   this.users = [];
   this.user = [];
 
-
-
-
   this.getUsers = function(){
     $http.get(usersUrl)
     .then(function(response) {
@@ -56,5 +53,39 @@ angular.module('App')
       console.log('logged in!');
     });
   };
+
+}]);
+
+
+
+angular.module('App')
+.service('TopicService', ['$http', '$routeParams', function($http, $routeParams){
+
+  var self = this;
+  var topicsUrl = '/api/topics';
+
+  this.topics = [];
+  this.topic = null;
+
+  this.getTopics = function(){
+    $http.get(topicsUrl)
+    .then(function(response){
+      self.topics = response.data;
+    });
+    return self.topics;
+  };
+
+  this.getTopic = function(){
+    var apiUrl = 'api/topics/' + parseInt($routeParams.param2);
+    console.log('apiUrl', apiUrl);
+
+    $http.get(apiUrl)
+    .then(function(response){
+      console.log('response.data', response.data);
+      self.topic = response.data;
+  });
+    return self.topic;
+  };
+
 
 }]);
