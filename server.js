@@ -55,8 +55,6 @@ passport.use(new LocalStrategy(function(username, password, done){
     if(user === null){
       return done(null, false, {message: 'bad username or password'});
     }else{
-      console.log('password', password);
-      console.log('user.password', user.password);
       bcrypt.compare(password, user.password)
       .then(res => {
         if(res){
@@ -81,6 +79,9 @@ app.post('/api/users', (req, res) => {
       })
       .then((newUser) => {
         return res.json(newUser);
+      })
+      .catch((err) => {
+        console.log(err);
       });
     });
   });
@@ -90,14 +91,15 @@ function isAuthenticated(req, res, next){
   if(req.isAuthenticared()){
     next();
   }else{
-    res.redirect('/');
+    // res.redirect('/');
   }
 }
 
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/gallery',
-  failureRedirect: '/login'
-}));
+app.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+    res.json(req.user);
+});
 
 app.use('/api', apiRoutes);
 
@@ -106,6 +108,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-  db.sequelize.sync({ force: true });
+  db.sequelize.sync({ force: false });
   console.log(`Server listening on port: '${port}`);
 });

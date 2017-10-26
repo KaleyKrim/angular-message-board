@@ -76,7 +76,6 @@ angular.module('App')
 
   this.getTopic = function(){
     var apiUrl = 'api/topics/' + parseInt($routeParams.param2);
-    console.log('apiUrl', apiUrl);
 
     $http.get(apiUrl)
     .then(function(response){
@@ -86,18 +85,51 @@ angular.module('App')
   };
 
   this.addTopic = function(newTopic) {
-    console.log('newTopic', newTopic);
     var topic = {
       name: newTopic.name
     };
 
-    self.topics.push(topic);
-
     $http.post(topicsUrl, topic)
     .then(function(response) {
       console.log('Added topic to backend database!');
+      self.topics.push(response.data);
     });
   };
 
+}]);
+
+angular.module('App')
+.service('MessageService', ['$http', '$routeParams', function($http, $routeParams){
+
+  var self = this;
+  var newMessageApi = 'api/messages/';
+  var latestApi = '/api/messages/latest';
+
+
+  this.messages = [];
+  this.latestMessages = [];
+
+  this.getMessages = function(){
+    var byTopicApi = '/api/messages/by-topic/' + parseInt($routeParams.param2);
+    $http.get(byTopicApi)
+    .then(function(response) {
+      self.messages = response.data;
+    });
+    return self.messages;
+  };
+
+  this.addMessage = function(newMessage){
+    var message = {
+      name: newMessage.name,
+      body: newMessage.body,
+      topicId: parseInt($routeParams.param2)
+    };
+
+    $http.post(newMessageApi, message)
+    .then(function(response) {
+      console.log('message posted to database!!');
+      self.messages.push(response.data);
+    });
+  };
 
 }]);
