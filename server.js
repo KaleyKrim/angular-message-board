@@ -55,6 +55,8 @@ passport.use(new LocalStrategy(function(username, password, done){
     if(user === null){
       return done(null, false, {message: 'bad username or password'});
     }else{
+      console.log('password', password);
+      console.log('user.password', user.password);
       bcrypt.compare(password, user.password)
       .then(res => {
         if(res){
@@ -62,10 +64,27 @@ passport.use(new LocalStrategy(function(username, password, done){
         }else{
           return done(null, false, {message: 'bad username or password'});
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
     }
   });
 }));
+
+app.post('/api/users', (req, res) => {
+  bcrypt.genSalt(saltRounds, function(err, salt){
+    bcrypt.hash(req.body.password, salt, function (err, hash){
+      User.create({
+        username: req.body.username,
+        password: hash
+      })
+      .then((newUser) => {
+        return res.json(newUser);
+      });
+    });
+  });
+});
 
 function isAuthenticated(req, res, next){
   if(req.isAuthenticared()){
@@ -77,13 +96,8 @@ function isAuthenticated(req, res, next){
 
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/gallery',
-  failureRedirect: '/'
+  failureRedirect: '/login'
 }));
-
-app.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
-});
 
 app.use('/api', apiRoutes);
 

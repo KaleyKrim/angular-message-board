@@ -24,9 +24,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   let topicName = req.body.name;
   // let userId = req.body.created_by;
-  // let userId = req.user.id;
+  let userId = req.user.id;
 
-  return Topic.create( { name: topicName })
+  return Topic.create( { name: topicName, created_by: userId})
   .then(newTopic => {
     return res.json(newTopic);
   });

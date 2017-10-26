@@ -3,12 +3,11 @@ angular.module('App')
   $scope.TopicService = TopicService;
   TopicService.getTopics();
 
-  $scope.newTopic = {
+    $scope.newTopic = {
     name: ''
   };
 
   $scope.addTopic = function(e){
     TopicService.addTopic($scope.newTopic);
   };
-
 }]);

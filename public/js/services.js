@@ -23,7 +23,6 @@ angular.module('App')
     $http.get(apiUrl)
     .then(function(response){
       self.user = response.data;
-      console.log('self.user', self.user);
   });
     return self.user;
   };
