@@ -132,4 +132,12 @@ angular.module('App')
     });
   };
 
+  this.getLatest = function(){
+    $http.get(latestApi)
+    .then(function(response) {
+      self.messages = response.data;
+    });
+    return self.messages;
+  };
+
 }]);
