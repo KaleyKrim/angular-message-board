@@ -1,14 +1,20 @@
 angular.module('App')
-.controller('UserController', ['UserService', 'MessageService', '$scope', '$routeParams', function(UserService, MessageService, $scope, $routeParams){
+.controller('UserController', ['UserService', 'MessageService', 'TopicService', '$scope', '$routeParams', function(UserService, MessageService, TopicService, $scope, $routeParams){
 
   $scope.UserService = UserService;
+  $scope.MessageService = MessageService;
+  $scope.TopicService = TopicService;
 
   UserService.getUser();
 
   $scope.user = UserService.user;
 
-  $scope.MessageService = MessageService;
-
   MessageService.getMessagesByAuthor();
+
+  TopicService.getTopics();
+
+  $scope.getTopicNameById = TopicService.getTopicNameById;
+
+
 
 }]);

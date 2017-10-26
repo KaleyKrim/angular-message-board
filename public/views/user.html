@@ -4,5 +4,11 @@
   Joined on: {{ UserService.user.createdAt }}
 </div>
 <div>
-  {{ MessageService.authorMessages }}
+  <ul>
+    <li ng-repeat="message in MessageService.authorMessages">
+      {{ message.name }}
+      on topic <a href="/topics/{{ message.topic_id }}"> {{ getTopicNameById(message.topic_id) }} </a>
+      <br>At {{ message.createdAt }}
+    </li>
+  </ul>
 </div>

@@ -16,6 +16,16 @@ angular.module('App')
     return self.users;
   };
 
+  // this.findUserById = function(author_id){
+  //   var author = null;
+  //   for (var i = 0; i < self.users.length; i++) {
+  //     if (self.users[i].id === author_id){
+  //       author = self.users[i];
+  //     }
+  //   }
+  //   return author;
+  // };
+
 
   this.getUser = function(){
     var apiUrl = 'api/users/' + parseInt($routeParams.param1);
@@ -84,6 +94,16 @@ angular.module('App')
       self.topic = response.data;
   });
     return self.topic;
+  };
+
+  this.getTopicNameById = function(id){
+    var topicName = null;
+    for (var i = 0; i < self.topics.length; i++) {
+      if(self.topics[i].id === id){
+        topicName = self.topics[i].name;
+      }
+    }
+    return topicName;
   };
 
   this.addTopic = function(newTopic) {
