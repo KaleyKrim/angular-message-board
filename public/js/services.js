@@ -1,37 +1,34 @@
 angular.module('App')
-.service('UserService', ['$http', function($http){
+.service('UserService', ['$http', '$routeParams', function($http, $routeParams){
 
   var self = this;
   var usersUrl = '/api/users';
-  var userUrl = '/api/users/:id';
-  this.users = [];
-  this.user = '';
 
-  this.getAll = function(){
+
+  this.users = [];
+  this.user = [];
+
+
+
+
+  this.getUsers = function(){
     $http.get(usersUrl)
     .then(function(response) {
       self.users = response.data;
     });
+    return self.users;
   };
 
-  this.getUsers = function(){
-    return users;
-  };
 
-  // this.getUser = function(id){
-  //   console.log('id', id);
-  //   for (var i = 0; i < self.users.length; i++) {
-  //     if(self.users[i].id === id){
-  //       return self.users[i];
-  //     }
-  //   }
-  // };
+  this.getUser = function(){
+    var apiUrl = 'api/users/' + parseInt($routeParams.param1);
 
-  this.getUser = function(url){
-    $http.get(url)
+    $http.get(apiUrl)
     .then(function(response){
       self.user = response.data;
-    });
+      console.log('self.user', self.user);
+  });
+    return self.user;
   };
 
   this.addUser = function(newUser) {

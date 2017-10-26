@@ -4,6 +4,6 @@ angular.module('App')
 
   $scope.UserService = UserService;
 
-  UserService.getAll();
+  UserService.getUsers();
 
 }]);
