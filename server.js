@@ -7,6 +7,8 @@ const port = process.env.port || 8080;
 const db = require('./models');
 const apiRoutes = require('./routes/index');
 const path = require('path');
+const bcrypt = require('bcrypt');
+const saltRounds = 12;
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -47,7 +49,7 @@ passport.deserializeUser((user, done) => {
   });
 });
 
-passport.use(new LocalStrategy(function(usrname, password, done){
+passport.use(new LocalStrategy(function(username, password, done){
   User.findOne({ where: { username: username } })
   .then(user => {
     if(user === null){

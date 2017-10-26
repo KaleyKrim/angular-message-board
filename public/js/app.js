@@ -17,6 +17,10 @@ var app = angular.module('App')
     templateUrl: '/views/register.html',
     controller: 'RegisterController'
   })
+  .when('/login', {
+    templateUrl: '/views/login.html',
+    controller: 'LoginController'
+  })
   .otherwise({
     template: '<h1>Helooo</h1>'
   });

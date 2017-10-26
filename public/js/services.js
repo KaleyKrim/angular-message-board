@@ -45,4 +45,16 @@ angular.module('App')
     });
   };
 
+  this.loginUser = function(userDetails){
+    var user = {
+      username: userDetails.username,
+      password: userDetails.password
+    };
+
+    $http.post('/login', user)
+    .then(function(response) {
+      console.log('logged in!');
+    });
+  };
+
 }]);
