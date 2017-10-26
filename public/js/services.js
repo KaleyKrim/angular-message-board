@@ -1,5 +1,5 @@
 angular.module('App')
-.service('UserService', ['$http', '$routeParams', function($http, $routeParams){
+.service('UserService', ['$http', '$routeParams', '$location', function($http, $routeParams, $location){
 
   var self = this;
   var usersUrl = '/api/users';
@@ -38,6 +38,7 @@ angular.module('App')
     $http.post(usersUrl, user)
     .then(function(response) {
       console.log('Added user to backend database!');
+      $location.path('/login');
     });
   };
 
@@ -50,6 +51,7 @@ angular.module('App')
     $http.post('/login', user)
     .then(function(response) {
       console.log('logged in!');
+      $location.path('/');
     });
   };
 
@@ -108,6 +110,7 @@ angular.module('App')
 
   this.messages = [];
   this.latestMessages = [];
+  this.authorMessages = [];
 
   this.getMessages = function(){
     var byTopicApi = '/api/messages/by-topic/' + parseInt($routeParams.param2);
@@ -116,6 +119,17 @@ angular.module('App')
       self.messages = response.data;
     });
     return self.messages;
+  };
+
+  this.getMessagesByAuthor = function(){
+    var byAuthorApi = '/api/messages/' + parseInt($routeParams.param1);
+
+    $http.get(byAuthorApi)
+    .then(function(response) {
+      console.log(response.data);
+      self.authorMessages = response.data;
+    });
+    return self.authorMessages;
   };
 
   this.addMessage = function(newMessage){

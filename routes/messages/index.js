@@ -18,7 +18,6 @@ router.post('/', (req, res) => {
 });
 
 router.get('/latest', (req, res) => {
-
   return Message.findAll({
     order: [
       ['createdAt', 'DESC']
@@ -32,7 +31,23 @@ router.get('/latest', (req, res) => {
   .catch((err) => {
     console.log(err);
   });
+});
 
+router.get('/:id', (req, res) => {
+  let userId = parseInt(req.params.id);
+  console.log('req.params', req.params);
+
+  return Message.findAll({
+    where: {
+      author_id : userId
+    }
+  })
+  .then(message => {
+    return res.json(message);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 });
 
 router.get('/by-topic/:topic_id', (req, res) => {

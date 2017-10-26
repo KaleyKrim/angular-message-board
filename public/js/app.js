@@ -29,12 +29,12 @@ var app = angular.module('App')
     templateUrl: '/views/latest.html',
     controller: 'LatestController'
   })
-  // .when('/', {
-  //   templateUrl: '/views/home.html',
-  //   controller: 'TopicsController'
-  // })
+  .when('/', {
+    templateUrl: '/views/home.html',
+    controller: 'TopicsController'
+  })
   .otherwise({
-    template: '<h1>nOPE</h1>'
+    template: '<h1>cant find the page sry ;(</h1>'
   });
 
   $locationProvider.html5Mode(true);
