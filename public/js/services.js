@@ -65,7 +65,7 @@ angular.module('App')
   var topicsUrl = '/api/topics';
 
   this.topics = [];
-  this.topic = null;
+  this.topic = [];
 
   this.getTopics = function(){
     $http.get(topicsUrl)
@@ -81,10 +81,23 @@ angular.module('App')
 
     $http.get(apiUrl)
     .then(function(response){
-      console.log('response.data', response.data);
       self.topic = response.data;
   });
     return self.topic;
+  };
+
+  this.addTopic = function(newTopic) {
+    console.log('newTopic', newTopic);
+    var topic = {
+      name: newTopic.name
+    };
+
+    self.topics.push(topic);
+
+    $http.post(topicsUrl, topic)
+    .then(function(response) {
+      console.log('Added topic to backend database!');
+    });
   };
 
 

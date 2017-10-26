@@ -25,10 +25,10 @@ var app = angular.module('App')
     templateUrl: '/views/topic.html',
     controller: 'TopicController'
   })
-  .when('/', {
-    templateUrl: '/views/home.html',
-    controller: 'TopicsController'
-  })
+  // .when('/', {
+  //   templateUrl: '/views/home.html',
+  //   controller: 'TopicsController'
+  // })
   .otherwise({
     template: '<h1>nOPE</h1>'
   });

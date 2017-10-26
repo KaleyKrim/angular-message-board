@@ -5,6 +5,4 @@ angular.module('App')
 
   TopicService.getTopic();
 
-  $scope.topic = TopicService.topic;
-
 }]);

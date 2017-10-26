@@ -23,12 +23,12 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   let topicName = req.body.name;
-  let userId = req.body.created_by;
+  // let userId = req.body.created_by;
   // let userId = req.user.id;
 
-  return Topic.create( { name: topicName, created_by: userId})
+  return Topic.create( { name: topicName })
   .then(newTopic => {
-    return res.send(newTopic);
+    return res.json(newTopic);
   });
 });
 

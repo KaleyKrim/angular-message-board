@@ -12,7 +12,24 @@
     <a ng-href="/register">Register</a>
     <a ng-href="/login">Login</a>
     <a ng-href="/logout">Logout</a>
+  </div>
 
+  <div ng-controller="TopicsController">
+    <div>
+      All Topics:
+      <ul>
+        <li ng-repeat="topic in TopicService.topics">
+          <a href="/topics/{{ topic.id }}">{{ topic.name }}</a> Id: {{ topic.id }}
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <form>
+        <input type="text" ng-model="newTopic.name" placeholder="TopicName">
+        <button ng-click="addTopic()">Make New Topic</button>
+      </form>
+    </div>
   </div>
 
   <div ng-view>
