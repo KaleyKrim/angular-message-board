@@ -1,5 +1,5 @@
 angular.module('App')
-.service('UserService', ['$http', '$routeParams', '$location', function($http, $routeParams, $location){
+.service('UserService', ['$http', '$routeParams', '$location', '$route', function($http, $routeParams, $location, $window){
 
   var self = this;
   var usersUrl = '/api/users';
@@ -16,15 +16,18 @@ angular.module('App')
     return self.users;
   };
 
-  // this.findUserById = function(author_id){
-  //   var author = null;
-  //   for (var i = 0; i < self.users.length; i++) {
-  //     if (self.users[i].id === author_id){
-  //       author = self.users[i];
-  //     }
-  //   }
-  //   return author;
-  // };
+  this.findUserById = function(id){
+    var author = null;
+    for (var i = 0; i < self.users.length; i++) {
+      if (self.users[i].id === id){
+        author = self.users[i].name;
+      }
+    }
+    console.log(author);
+    return author;
+  };
+
+
 
 
   this.getUser = function(){
@@ -60,7 +63,18 @@ angular.module('App')
 
     $http.post('/login', user)
     .then(function(response) {
-      console.log('logged in!');
+      var username = response.data.username;
+      localStorage.setItem('loggedIn', true);
+      console.log(localStorage.getItem('loggedIn'));
+      $location.path('/');
+    });
+  };
+
+  this.logOut = function(){
+    $http.get('/logout')
+    .then(function (response){
+      localStorage.setItem('loggedIn', false);
+      console.log(localStorage.getItem('loggedIn'));
       $location.path('/');
     });
   };

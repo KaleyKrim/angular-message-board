@@ -101,6 +101,12 @@ app.post('/login',
     res.json(req.user);
 });
 
+app.get('/logout', (req, res) => {
+  let user = req.user;
+  req.logout();
+  res.json(user);
+});
+
 app.use('/api', apiRoutes);
 
 app.get('*', (req, res) => {

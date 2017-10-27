@@ -7,6 +7,8 @@ angular.module('App')
     name: ''
   };
 
+  $scope.loggedIn = localStorage.getItem('loggedIn');
+
   $scope.addTopic = function(e){
     TopicService.addTopic($scope.newTopic);
   };
