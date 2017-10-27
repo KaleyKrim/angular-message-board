@@ -1,7 +1,7 @@
 <div>
   <ul>
     <li ng-repeat="message in MessageService.messages">
-      <a href="/topics/{{ message.topic_id }}">{{ message.topic_id }}</a>
+      <a href="/topics/{{ message.topic_id }}">{{ getTopicNameById(message.topic_id) }}</a>
       <br>
       {{ message.createdAt}}
       <br>
