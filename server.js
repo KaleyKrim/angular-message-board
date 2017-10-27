@@ -42,10 +42,14 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((user, done) => {
   User.findOne({ where: { id: user.id }})
   .then(user => {
-    return done(null, {
-      id: user.id,
-      username: user.username
-    });
+    if(!user){
+      return done(null, {});
+    }else{
+      return done(null, {
+        id: user.id,
+        username: user.username
+      });
+    }
   });
 });
 
