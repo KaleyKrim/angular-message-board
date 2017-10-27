@@ -7,7 +7,6 @@
 <div>
   <ul>
     <li ng-repeat="message in MessageService.messages">
-      {{ message.name }}
       {{ message.body }}
     </li>
   </ul>
@@ -15,7 +14,6 @@
 
 <div>
   <form>
-    <input type="text" ng-model="newMessage.name" placeholder="MessageName">
     <input type="text" ng-model="newMessage.body" placeholder="MessageBody">
     <button ng-click="addMessage()">Post Message to Thread</button>
   </form>

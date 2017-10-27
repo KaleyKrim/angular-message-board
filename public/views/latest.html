@@ -1,8 +1,11 @@
 <div>
   <ul>
     <li ng-repeat="message in MessageService.messages">
-      {{ message.name }}
-      {{ message.author_id}}
+      <a href="/topics/{{ message.topic_id }}">{{ message.topic_id }}</a>
+      <br>
+      {{ message.createdAt}}
+      <br>
+      {{ message.author_id}} ((actually this is the author name))
     </li>
   </ul>
 </div>

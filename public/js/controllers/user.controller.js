@@ -7,8 +7,6 @@ angular.module('App')
 
   UserService.getUser();
 
-  $scope.logOut = UserService.logOut;
-
   $scope.user = UserService.user;
 
   MessageService.getMessagesByAuthor();

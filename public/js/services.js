@@ -168,7 +168,6 @@ angular.module('App')
 
   this.addMessage = function(newMessage){
     var message = {
-      name: newMessage.name,
       body: newMessage.body,
       topicId: parseInt($routeParams.param2)
     };

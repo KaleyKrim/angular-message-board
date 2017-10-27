@@ -2,7 +2,6 @@
 
 module.exports = function(sequelize, DataTypes){
   const message = sequelize.define('message', {
-    name: {type: DataTypes.STRING, allowNull: false},
     body: {type: DataTypes.TEXT, allowNull: false}
   });
   message.associate = function(models){

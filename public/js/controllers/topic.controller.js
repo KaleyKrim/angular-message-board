@@ -6,7 +6,6 @@ angular.module('App')
   $scope.UserService = UserService;
 
   $scope.newMessage = {
-    name: '',
     body: ''
   };
 
@@ -18,7 +17,7 @@ angular.module('App')
     MessageService.addMessage($scope.newMessage);
   };
 
-  $scope.findUserById = UserService.findUserById;
+  $scope.authorName = UserService.findUserById(TopicService.topic.created_by);
 
 
 }]);
