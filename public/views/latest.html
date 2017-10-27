@@ -3,9 +3,9 @@
     <li ng-repeat="message in MessageService.messages">
       <a href="/topics/{{ message.topic_id }}">{{ getTopicNameById(message.topic_id) }}</a>
       <br>
-      {{ message.createdAt}}
+      @ {{ message.createdAt}}
       <br>
-      {{ message.author_id}} ((actually this is the author name))
+      by {{ findUserById(message.author_id) }}
     </li>
   </ul>
 </div>
