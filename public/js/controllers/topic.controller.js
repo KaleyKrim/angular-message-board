@@ -12,9 +12,23 @@ angular.module('App')
   TopicService.getTopic();
   MessageService.getMessages();
 
+  $scope.loginObject = UserService.getLoggedIn();
 
   $scope.addMessage = function(e){
     MessageService.addMessage($scope.newMessage);
+  };
+
+  $scope.openEditForm = function(e){
+    TopicService.openEditForm();
+    $scope.editForm = localStorage.getItem('editForm');
+  };
+
+  $scope.editedTopic = {
+    name: ''
+  };
+
+  $scope.editTopic = function(e){
+    TopicService.editTopic($scope.editedTopic);
   };
 
   UserService.getUsers();

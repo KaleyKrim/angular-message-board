@@ -96,6 +96,17 @@ angular.module('App')
 
   this.topics = [];
   this.topic = [];
+  this.editForm = false;
+
+  this.openEditForm = function(){
+    if(self.editForm === false){
+      self.editForm = true;
+    }else{
+      self.editForm = false;
+    }
+    localStorage.setItem('editForm', self.editForm);
+    return localStorage.getItem('editForm');
+  };
 
   this.getTopics = function(){
     $http.get(topicsUrl)
@@ -134,6 +145,28 @@ angular.module('App')
     .then(function(response) {
       console.log('Added topic to backend database!');
       self.topics.push(response.data);
+    })
+    .catch(function(err){
+      console.log(err);
+    });
+  };
+
+  this.editTopic = function(editedTopic){
+    var topic = {
+      name: editedTopic.name
+    };
+
+    var apiUrl = 'api/topics/' + parseInt($routeParams.param2);
+
+    $http.put(apiUrl, topic)
+    .then(function(response) {
+      var index = null;
+      for (var i = 0; i < self.topics.length; i++) {
+        if(self.topics[i].id === $routeParams.param2){
+          index = i;
+        }
+      }
+      self.topics.splice(i, 1, response.data);
     });
   };
 

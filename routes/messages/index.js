@@ -6,15 +6,18 @@ const db = require('../../models');
 const Message = db.message;
 
 router.post('/', (req, res) => {
-  let userId = req.user.id;
-  let messageName = req.body.name;
   let messageBody = req.body.body;
   let topicId = req.body.topicId;
+  let userId = req.user.id;
 
-  return Message.create({ name: messageName, body: messageBody, author_id: userId, topic_id: topicId})
+  return Message.create({ body: messageBody, author_id: userId, topic_id: topicId})
   .then(newMessage => {
     return res.json(newMessage);
+  })
+  .catch((err) => {
+    console.log(err);
   });
+
 });
 
 router.get('/latest', (req, res) => {

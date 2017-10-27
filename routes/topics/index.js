@@ -37,12 +37,14 @@ router.put('/:id', (req, res) => {
 
   return Topic.findById(topicId)
   .then(topic => {
-    return Topic.update(newInfo, {
-      where: [{id: topicId}]
-    })
-    .then(topic => {
-      return res.json(topic);
-    });
+    if(req.user.id === topic.created_by){
+      return Topic.update(newInfo, {
+        where: [{id: topicId}]
+      })
+      .then(topic => {
+        return res.json(topic);
+      });
+    }
   });
 });
 
