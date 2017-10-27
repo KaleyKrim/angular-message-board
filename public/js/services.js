@@ -89,7 +89,7 @@ angular.module('App')
 
 
 angular.module('App')
-.service('TopicService', ['$http', '$routeParams', function($http, $routeParams){
+.service('TopicService', ['$http', '$routeParams', '$route', function($http, $routeParams, $route){
 
   var self = this;
   var topicsUrl = '/api/topics';
@@ -167,6 +167,7 @@ angular.module('App')
         }
       }
       self.topics.splice(i, 1, response.data);
+      $route.reload();
     });
   };
 
