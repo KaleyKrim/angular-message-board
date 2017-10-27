@@ -4,42 +4,41 @@
   <meta charset="UTF-8">
   <title>Yo Yo Yo Welcome to the MESSAGE BOARD!!!</title>
   <base href="/">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body ng-app="App">
-  <div ng-controller="UserLoginController" id = "navBar">
-    <a ng-href="/">Home</a>
-    <a ng-href="/users">Users</a>
-    <a ng-href="/register">Register</a>
-    <a ng-href="/login">Login</a>
-    <a href ng-click="logOut()">Logout</a>
 
-  </div>
-
-  <div ng-controller="TopicsController">
-    <a ng-href="/latest">Latest Messages</a>
-    <div>
-      All Topics:
+<div id="sideBar">
+    <div ng-controller="UserLoginController" id = "navBar">
       <ul>
-        <li ng-repeat="topic in TopicService.topics">
-          <a href="/topics/{{ topic.id }}">{{ topic.name }}</a>
-          By: {{ findUserById(topic.created_by) }}
-        </li>
+        <li><a ng-href="/">Home</a></li>
+        <li><a ng-href="/users">Users</a></li>
+        <li><a ng-href="/register">Register</a></li>
+        <li><a ng-href="/login">Login</a></li>
+        <li><a href ng-click="logOut()">Logout</a></li>
+        <li><a ng-href="/latest">Latest Messages</a></li>
       </ul>
     </div>
-
-    <div ng-if="loggedIn === 'true'">
-      <form>
-        <input type="text" ng-model="newTopic.name" placeholder="TopicName">
-        <button ng-click="addTopic()">Create New Topic</button>
-      </form>
+    <div ng-controller="TopicsController" id="allTopics">
+      <div>
+        All Topics:
+        <ul>
+          <li ng-repeat="topic in TopicService.topics">
+            <a href="/topics/{{ topic.id }}">{{ topic.name }}</a>
+            By: {{ findUserById(topic.created_by) }}
+          </li>
+        </ul>
+      </div>
+      <div ng-if="loggedIn === 'true'" id="createNew">
+        <form>
+          <input type="text" ng-model="newTopic.name" placeholder="TopicName">
+          <button ng-click="addTopic()">Create New Topic</button>
+        </form>
+      </div>
     </div>
   </div>
 
-  <div>
-    Note to self: after this = everything to the right of the nav bar...
-  </div>
-
-  <div ng-view>
+  <div ng-view id="viewDiv">
     Loading...
   </div>
 

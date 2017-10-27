@@ -1,11 +1,10 @@
+<h1>Latest Messages</h1>
 <div>
-  <ul>
+  <ol>
     <li ng-repeat="message in MessageService.messages">
       <a href="/topics/{{ message.topic_id }}">{{ getTopicNameById(message.topic_id) }}</a>
       <br>
-      @ {{ message.createdAt}}
-      <br>
-      by {{ findUserById(message.author_id) }}
+      by <a href="/users/{{ message.author_id }}"">{{ findUserById(message.author_id) }}</a> on {{ message.createdAt | date:"MMM d, y 'at' h:mm:ss a" }}
     </li>
-  </ul>
+  </ol>
 </div>

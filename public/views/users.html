@@ -1,9 +1,7 @@
 <div>
-  <p>hello</p>
   <ul>
     <li ng-repeat="user in UserService.users">
       <a href="/users/{{ user.id }}"><h1> {{ user.username }} </h1></a>
-      <br>{{ user.id }}
     </li>
   </ul>
 </div>

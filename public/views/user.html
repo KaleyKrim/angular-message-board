@@ -1,14 +1,13 @@
 <div>
-  {{ UserService.user.username }}
+  <h1>{{ UserService.user.username }}</h1>
   <br>
-  Joined on: {{ UserService.user.createdAt }}
+  Joined on {{ UserService.user.createdAt | date:"MMM d, y 'at' h:mm:ss a" }}
 </div>
 <div>
+  <h2>Message History</h2>
   <ul>
     <li ng-repeat="message in MessageService.authorMessages">
-      {{ message.name }}
-      on topic <a href="/topics/{{ message.topic_id }}"> {{ getTopicNameById(message.topic_id) }} </a>
-      <br>At {{ message.createdAt }}
+      Posted on <a href="/topics/{{ message.topic_id }}"> {{ getTopicNameById(message.topic_id) }} </a> on {{ message.createdAt | date:"MMM d, y 'at' h:mm:ss a" }}
     </li>
   </ul>
 </div>
