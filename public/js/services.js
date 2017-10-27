@@ -1,5 +1,5 @@
 angular.module('App')
-.service('UserService', ['$http', '$routeParams', '$location', '$route', function($http, $routeParams, $location, $window){
+.service('UserService', ['$http', '$routeParams', '$location', '$window', function($http, $routeParams, $location, $window){
 
   var self = this;
   var usersUrl = '/api/users';
@@ -7,6 +7,7 @@ angular.module('App')
 
   this.users = [];
   this.user = [];
+
 
   this.getUsers = function(){
     $http.get(usersUrl)
@@ -25,9 +26,6 @@ angular.module('App')
     }
     return author;
   };
-
-
-
 
   this.getUser = function(){
     var apiUrl = 'api/users/' + parseInt($routeParams.param1);
@@ -49,7 +47,7 @@ angular.module('App')
 
     $http.post(usersUrl, user)
     .then(function(response) {
-      console.log('Added user to backend database!');
+      console.log('Added user to database!');
       $location.path('/login');
     });
   };
@@ -64,8 +62,9 @@ angular.module('App')
     .then(function(response) {
       var username = response.data.username;
       localStorage.setItem('loggedIn', true);
-      console.log(localStorage.getItem('loggedIn'));
+      console.log('loggedin?', localStorage.getItem('loggedIn'));
       $location.path('/');
+      $window.location.reload();
     });
   };
 
@@ -73,9 +72,16 @@ angular.module('App')
     $http.get('/logout')
     .then(function (response){
       localStorage.setItem('loggedIn', false);
-      console.log(localStorage.getItem('loggedIn'));
+      console.log('loggedin?', localStorage.getItem('loggedIn'));
       $location.path('/');
+      $window.location.reload();
     });
+  };
+
+  this.getLoggedIn = function(){
+    var loginStatus = localStorage.getItem('loggedIn');
+    var loggedIn = {loggedIn : loginStatus};
+    return loggedIn;
   };
 
 }]);

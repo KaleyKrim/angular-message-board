@@ -41,7 +41,7 @@ router.put('/:id', (req, res) => {
       where: [{id: topicId}]
     })
     .then(topic => {
-      return res.send(topic);
+      return res.json(topic);
     });
   });
 });

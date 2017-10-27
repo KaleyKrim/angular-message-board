@@ -2,6 +2,7 @@ body{
   display: flex;
   height: 600px;
   font-family: arial;
+  font-size: 16px;
 }
 
 #sideBar{
@@ -10,8 +11,23 @@ body{
   margin-left: 2%;
   padding-right: 2%;
   border-right: solid 1px black;
+  min-width: 17%;
 }
 
 #viewDiv{
   margin-left: 7%;
+}
+
+a {
+  text-decoration: none;
+  color: #6666ff;
+}
+
+.messageBody{
+  margin-left: 5%;
+  max-width: 60%;
+}
+
+.messageHeader{
+  font-size: 120%;
 }

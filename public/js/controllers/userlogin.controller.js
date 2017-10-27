@@ -3,8 +3,9 @@ angular.module('App')
 
   $scope.UserService = UserService;
 
+  $scope.loginObject = UserService.getLoggedIn();
+
   $scope.logOut = UserService.logOut;
-  $scope.user = UserService.user;
 
 
 }]);

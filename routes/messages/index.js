@@ -25,7 +25,6 @@ router.get('/latest', (req, res) => {
     limit: 10
   })
   .then(message => {
-    console.log('message', message);
     return res.json(message);
   })
   .catch((err) => {
@@ -35,7 +34,6 @@ router.get('/latest', (req, res) => {
 
 router.get('/:id', (req, res) => {
   let userId = parseInt(req.params.id);
-  console.log('req.params', req.params);
 
   return Message.findAll({
     where: {
