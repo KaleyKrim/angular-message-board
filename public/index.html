@@ -21,7 +21,8 @@
       All Topics:
       <ul>
         <li ng-repeat="topic in TopicService.topics">
-          <a href="/topics/{{ topic.id }}">{{ topic.name }}</a> Id: {{ topic.id }} Created By User w/ Id: {{ topic.created_by }}
+          <a href="/topics/{{ topic.id }}">{{ topic.name }}</a>
+          By: {{ findUserById(topic.created_by) }}
         </li>
       </ul>
     </div>

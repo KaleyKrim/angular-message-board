@@ -1,13 +1,13 @@
 <div>
   {{ TopicService.topic.name }}
   Created at: {{ TopicService.topic.createdAt}}
-  Created by: {{ authorName }}
+  Created by: {{ findUserById(TopicService.topic.created_by) }}
 </div>
 
 <div>
   <ul>
     <li ng-repeat="message in MessageService.messages">
-      {{ message.body }}
+      {{ findUserById(message.author_id) }} @ {{ message.createdAt }} : {{ message.body }}
     </li>
   </ul>
 </div>

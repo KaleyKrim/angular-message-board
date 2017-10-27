@@ -17,7 +17,8 @@ angular.module('App')
     MessageService.addMessage($scope.newMessage);
   };
 
-  $scope.authorName = UserService.findUserById(TopicService.topic.created_by);
+  UserService.getUsers();
+  $scope.findUserById = UserService.findUserById;
 
 
 }]);

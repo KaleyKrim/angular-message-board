@@ -20,10 +20,9 @@ angular.module('App')
     var author = null;
     for (var i = 0; i < self.users.length; i++) {
       if (self.users[i].id === id){
-        author = self.users[i].name;
+        author = self.users[i].username;
       }
     }
-    console.log(author);
     return author;
   };
 
