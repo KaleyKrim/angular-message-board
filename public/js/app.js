@@ -34,7 +34,7 @@ var app = angular.module('App')
     controller: 'TopicsController'
   })
   .otherwise({
-    template: '<h1>cant find the page sry ;(</h1>'
+    templateUrl: '/views/notFound.html'
   });
 
   $locationProvider.html5Mode(true);

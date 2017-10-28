@@ -5,6 +5,67 @@ body{
   font-size: 16px;
 }
 
+#notFoundContainer {
+  text-align: center;
+  margin-left: -9%;
+  width: 100%;
+  height: 100%;
+  background: url(/assets/rabbits.gif) repeat center center; ;
+}
+
+#chickenSneakers{
+  background: url(/assets/chickenSneakers.gif) no-repeat;
+  background-size: 100%;
+  width: 200px;
+  height: 200px;
+}
+
+#chickenSoccer{
+  background: url(/assets/chickenSoccer.gif) no-repeat;
+  background-size: 100%;
+  width: 200px;
+  height: 200px;
+}
+
+#chickenComputer{
+  background: url(/assets/chickenComputer.gif) no-repeat;
+  background-size: 100%;
+  width: 200px;
+  height: 200px;
+}
+
+#gifs{
+  display: flex;
+  justify-content: space-between;
+}
+
+#notFoundText{
+  -webkit-animation-name: flashColors; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: flashColors;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes flashColors {
+  0%   {color: #FF0074;}
+  25%  {color: #FFB200;}
+  50%  {color: #8BFF00;}
+  75%  {color: #6400FF;}
+  100% {color: #FF0074;}
+}
+
+/* Standard syntax */
+@keyframes flashColors {
+  0%   {color: #FF0074;}
+  25%  {color: #FFB200;}
+  50%  {color: #8BFF00;}
+  75%  {color: #6400FF;}
+  100% {color: #FF0074;}
+}
+
 #sideBar{
   display: flex;
   flex-direction: column;
