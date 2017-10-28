@@ -2,7 +2,7 @@
   <h1>{{ TopicService.topic.name }}</h1>
   Created on {{ TopicService.topic.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} by <a href="/users/{{ TopicService.topic.created_by }}">{{ findUserById(TopicService.topic.created_by) }}</a>
 
-  <button ng-click="openEditForm()">Edit Topic</button>
+  <button ng-click="openEditForm()" ng-if="loginObject.loggedIn === 'true'">Edit Topic</button>
 
   <form ng-if="editForm === 'true'">
     <input type="text" ng-model="editedTopic.name" placeholder="New topic name">
