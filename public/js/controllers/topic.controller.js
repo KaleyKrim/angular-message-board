@@ -16,6 +16,7 @@ angular.module('App')
 
   $scope.addMessage = function(e){
     MessageService.addMessage($scope.newMessage);
+    $scope.newMessage.body = '';
   };
 
   $scope.openEditForm = function(e){
@@ -29,6 +30,7 @@ angular.module('App')
 
   $scope.editTopic = function(e){
     TopicService.editTopic($scope.editedTopic);
+    $scope.editedTopic.name = '';
   };
 
   UserService.getUsers();

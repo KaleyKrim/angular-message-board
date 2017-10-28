@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "CASCADE",
       foreignKey: {
         name: 'created_by',
-        allowNull: true
+        allowNull: false
       }
     });
     topic.hasMany(models.message, {

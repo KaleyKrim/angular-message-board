@@ -12,6 +12,7 @@ angular.module('App')
 
   $scope.addTopic = function(e){
     TopicService.addTopic($scope.newTopic);
+    $scope.newTopic.name = '';
   };
 
   UserService.getUsers();

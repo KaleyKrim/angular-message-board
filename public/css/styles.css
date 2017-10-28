@@ -20,7 +20,7 @@ body{
 
 a {
   text-decoration: none;
-  color: #6666ff;
+  color: #FF0074;
 }
 
 .messageBody{
@@ -33,5 +33,33 @@ a {
 }
 
 #gottaLogin{
-  color: #FF0064;
+  color: #FF0074;
+}
+
+#allTopics{
+  border-top: dotted 1px black;
+}
+
+#createNew{
+  border-top: dotted 1px black;
+}
+
+#welcomeMessage{
+  width: 850px;
+}
+
+#giraffe{
+  float: right;
+}
+
+#latestList{
+  line-height: 130%;
+}
+
+.latest{
+  margin-bottom: 3%;
+}
+
+#subtitle{
+  text-align: center;
 }

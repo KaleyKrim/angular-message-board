@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yo Yo Yo Welcome to the MESSAGE BOARD!!!</title>
+  <title>Kaley's Fancy Message Board</title>
   <base href="/">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -12,24 +12,27 @@
     <div ng-controller="UserLoginController" id = "navBar">
       <ul>
         <li><a ng-href="/">Home</a></li>
-        <li><a ng-href="/users">Users</a></li>
         <li ng-if="loginObject.loggedIn ==='false'"><a ng-href="/register">Register</a></li>
         <li ng-if="loginObject.loggedIn ==='false'"><a ng-href="/login">Login</a></li>
-        <li><a href ng-click="logOut()">Logout</a></li>
-        <li><a ng-href="/latest">Latest Messages</a></li>
+        <li ng-if="loginObject.loggedIn ==='true'"><a href ng-click="logOut()">Logout</a></li>
+        <li><a ng-href="/users">Users</a></li>
       </ul>
     </div>
 
     <div ng-controller="TopicsController" id="allTopics">
       <div>
-        All Topics:
         <ul>
+          <li><a ng-href="/latest">Latest Messages</a></li>
+          <br>
+          <div id="subtitle">Browse Topics</div>
           <li ng-repeat="topic in TopicService.topics">
             <a href="/topics/{{ topic.id }}">{{ topic.name }}</a>
           </li>
         </ul>
       </div>
       <div ng-if="loginObject.loggedIn ==='true'" id="createNew">
+        <br>
+        <br>
         <form>
           <input type="text" ng-model="newTopic.name" placeholder="TopicName">
           <button ng-click="addTopic()">Create New Topic</button>
