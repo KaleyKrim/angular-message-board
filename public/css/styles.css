@@ -6,11 +6,33 @@ body{
 }
 
 #notFoundContainer {
+  font-size: 150%;
   text-align: center;
   margin-left: -9%;
   width: 100%;
   height: 100%;
   background: url(/assets/rabbits.gif) repeat center center; ;
+  -webkit-animation-name: flashColors; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: flashColors;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+#latestLink a {
+  text-decoration: none;
+  -webkit-animation-name: flashColorsText; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: flashColorsText;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+#gifs{
+  display: flex;
+  justify-content: space-around;
 }
 
 #chickenSneakers{
@@ -34,38 +56,6 @@ body{
   height: 200px;
 }
 
-#gifs{
-  display: flex;
-  justify-content: space-between;
-}
-
-#notFoundText{
-  -webkit-animation-name: flashColors; /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
-  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
-  animation-name: flashColors;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-}
-
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes flashColors {
-  0%   {color: #FF0074;}
-  25%  {color: #FFB200;}
-  50%  {color: #8BFF00;}
-  75%  {color: #6400FF;}
-  100% {color: #FF0074;}
-}
-
-/* Standard syntax */
-@keyframes flashColors {
-  0%   {color: #FF0074;}
-  25%  {color: #FFB200;}
-  50%  {color: #8BFF00;}
-  75%  {color: #6400FF;}
-  100% {color: #FF0074;}
-}
-
 #sideBar{
   display: flex;
   flex-direction: column;
@@ -85,7 +75,7 @@ a {
 }
 
 a:hover{
-  color: #6666ff;
+  color: #7C00FF;
 }
 
 
@@ -145,4 +135,37 @@ a:hover{
 #postMessage{
   display: block;
   margin: auto;
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes flashColors {
+  0%   {background-color: #FFD4E3;}
+  25%  {background-color: #FFD4F5;}
+  50%  {background-color: #F5D4FF;}
+  75%  {background-color: #E8D4FF;}
+  100% {background-color: #F7D4FF;}
+}
+
+/* Standard syntax */
+@keyframes flashColors {
+  0%   {background-color: #FFD4E3;}
+  25%  {background-color: #FFD4F5;}
+  50%  {background-color: #F5D4FF;}
+  75%  {background-color: #E8D4FF;}
+  100% {background-color: #F7D4FF;}
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes flashColorsText {
+  0%   {color: #7C00FF;}
+  50% {color: #FF006C;}
+  100% {color: #7C00FF;}
+}
+
+/* Standard syntax */
+@keyframes flashColorsText {
+  0%   {color: #7C00FF;}
+  50% {color: #FF006C;}
+  100% {color: #7C00FF;}
 }

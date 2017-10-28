@@ -22,7 +22,7 @@
     <div ng-controller="TopicsController" id="allTopics">
       <div>
         <ul>
-          <li><a ng-href="/latest">Latest Messages</a></li>
+          <li id="latestLink"><a ng-href="/latest">Latest Messages</a></li>
           <br>
           <div id="subtitle">Browse Topics</div>
           <li ng-repeat="topic in TopicService.topics">
