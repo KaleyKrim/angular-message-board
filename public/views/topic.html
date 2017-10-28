@@ -9,12 +9,11 @@
     <button ng-click="editTopic()">Submit Changes</button>
   </form>
 
-
 </div>
 <br><br>
 <div ng-repeat="message in MessageService.messages" class="threadMessage">
   <div class="messageHeader">
-    <br><a href="/users/{{ message.author_id }}">{{ findUserById(message.author_id) }} </a>on {{ message.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} :
+    <a href="/users/{{ message.author_id }}">{{ findUserById(message.author_id) }} </a>on {{ message.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} :
     <br>
   </div>
   <div class="messageBody">
@@ -24,11 +23,10 @@
 <br><br>
 <div ng-if="loginObject.loggedIn === 'true'">
   <form>
-    <textarea ng-model="newMessage.body" rows="6" cols="100">Message body</textarea>
+    <textarea ng-model="newMessage.body" rows="6" cols="120">Message body</textarea>
     <br>
-    <button ng-click="addMessage()">Post Message to Thread</button>
+    <button id="postMessage" ng-click="addMessage()">Post Message to Thread</button>
   </form>
 </div>
-<br>
 <br>
 <div id="pleaseLogin" ng-if="loginObject.loggedIn === 'false'">Please <a ng-href="/login">log in</a> or <a ng-href="/register">register a new account</a> to post a message to this topic!</div>

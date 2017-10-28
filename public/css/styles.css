@@ -20,20 +20,16 @@ body{
 
 a {
   text-decoration: none;
-  color: #FF0074;
+  color: #ff0066;
 }
 
-.messageBody{
-  margin-left: 5%;
-  max-width: 60%;
+a:hover{
+  color: #6666ff;
 }
 
-.messageHeader{
-  font-size: 120%;
-}
 
 #gottaLogin{
-  color: #FF0074;
+  color: #ff0066;
 }
 
 #allTopics{
@@ -60,14 +56,32 @@ a {
   margin-bottom: 3%;
 }
 
-#subtitle{
-  text-align: center;
-}
-
 #pleaseLogin{
   text-align: center;
 }
 
 .loginReg{
   text-align: center;
+}
+
+.threadMessage{
+  max-width: 700px;
+}
+
+.messageBody{
+  margin-top: 1%;
+  margin-bottom: 3%;
+  margin-left: 5%;
+  max-width: 95%;
+}
+
+.messageHeader{
+  font-size: 90%;
+  margin-bottom: 1%;
+  margin-top: 3%;
+}
+
+#postMessage{
+  display: block;
+  margin: auto;
 }

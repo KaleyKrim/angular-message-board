@@ -72,7 +72,6 @@ angular.module('App')
     $http.get('/logout')
     .then(function (response){
       localStorage.setItem('loggedIn', false);
-      console.log('loggedin?', localStorage.getItem('loggedIn'));
       $location.path('/');
       $window.location.reload();
     });
