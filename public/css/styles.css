@@ -5,6 +5,10 @@ body{
   font-size: 16px;
 }
 
+input[type="text"], input[type="password"], textarea {
+  background-color: #E8D4FF;
+}
+
 #notFoundContainer {
   font-size: 150%;
   text-align: center;
@@ -71,7 +75,7 @@ body{
 
 a {
   text-decoration: none;
-  color: #ff0066;
+  color: #FF009B;
 }
 
 a:hover{
@@ -80,7 +84,7 @@ a:hover{
 
 
 #gottaLogin{
-  color: #ff0066;
+  color: #FF009B;
 }
 
 #allTopics{
@@ -159,13 +163,13 @@ a:hover{
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes flashColorsText {
   0%   {color: #7C00FF;}
-  50% {color: #FF006C;}
+  50% {color: #FF009B;}
   100% {color: #7C00FF;}
 }
 
 /* Standard syntax */
 @keyframes flashColorsText {
   0%   {color: #7C00FF;}
-  50% {color: #FF006C;}
+  50% {color: #FF009B;}
   100% {color: #7C00FF;}
 }
