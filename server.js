@@ -95,6 +95,7 @@ function isAuthenticated(req, res, next){
   if(req.isAuthenticared()){
     next();
   }else{
+    console.log('Something went wrong...');
     // res.redirect('/');
   }
 }

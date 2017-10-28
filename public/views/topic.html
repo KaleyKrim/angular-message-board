@@ -22,12 +22,13 @@
   </div>
 </div>
 <br><br>
-<div>
-  <div ng-if="loginObject.loggedIn === 'false'" id="gottaLogin">You must log in to post a message!</div>
+<div ng-if="loginObject.loggedIn === 'true'">
   <form>
     <textarea ng-model="newMessage.body" rows="6" cols="100">Message body</textarea>
     <br>
     <button ng-click="addMessage()">Post Message to Thread</button>
   </form>
-
 </div>
+<br>
+<br>
+<div id="pleaseLogin" ng-if="loginObject.loggedIn === 'false'">Please <a ng-href="/login">log in</a> or <a ng-href="/register">register a new account</a> to post a message to this topic!</div>
