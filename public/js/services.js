@@ -27,6 +27,16 @@ angular.module('App')
     return author;
   };
 
+  this.findUserImageById = function(id){
+    var image = null;
+    for (var i = 0; i < self.users.length; i++) {
+      if (self.users[i].id === id){
+        image = self.users[i].image;
+      }
+    }
+    return image;
+  };
+
   this.getUser = function(){
     var apiUrl = 'api/users/' + parseInt($routeParams.param1);
 
@@ -40,7 +50,8 @@ angular.module('App')
   this.addUser = function(newUser) {
     var user = {
       username: newUser.username,
-      password: newUser.password
+      password: newUser.password,
+      image: newUser.image
     };
 
     self.users.push(user);

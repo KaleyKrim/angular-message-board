@@ -9,6 +9,57 @@ input[type="text"], input[type="password"], textarea {
   background-color: #E8D4FF;
 }
 
+.userSpriteDiv{
+  display: flex;
+}
+
+.userSprite{
+  height: 10%;
+  width: 10%;
+}
+
+.userSpriteSmall{
+  height: 3%;
+  width: 3%;
+}
+
+.sprite{
+  height: 50px;
+  width: 50px;
+}
+
+#chooseYourCharacter{
+  justify-content: space-around;
+  display: flex;
+
+}
+
+#jelly {
+  background: url(/assets/jelly.gif) no-repeat;
+  background-size: 100%;
+  width: 30px;
+  height: 30px;
+}
+
+#lazy {
+  background: url(/assets/lazy.gif) no-repeat;
+  background-size: 100%;
+  width: 30px;
+  height: 30px;
+}
+
+#stars {
+  background: url(/assets/stars.gif) no-repeat;
+  background-size: 100%;
+  width: 30px;
+  height: 30px;
+}
+
+#jelly:hover, #lazy:hover, #stars:hover {
+  cursor: pointer;
+  background-color: #E8D4FF;
+}
+
 #notFoundContainer {
   font-size: 150%;
   text-align: center;

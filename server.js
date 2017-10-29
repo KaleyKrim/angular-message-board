@@ -79,7 +79,8 @@ app.post('/api/users', (req, res) => {
     bcrypt.hash(req.body.password, salt, function (err, hash){
       User.create({
         username: req.body.username,
-        password: hash
+        password: hash,
+        image: req.body.image
       })
       .then((newUser) => {
         return res.json(newUser);

@@ -1,5 +1,8 @@
 <div>
-  <h1>{{ UserService.user.username }}</h1>
+  <div class="userSpriteDiv">
+    <img ng-src="{{UserService.user.image}}" class="userSprite">
+    <h1>{{ UserService.user.username }}</h1>
+  </div>
   <br>
   Joined on {{ UserService.user.createdAt | date:"MMM d, y 'at' h:mm:ss a" }}
 </div>

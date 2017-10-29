@@ -35,6 +35,7 @@ angular.module('App')
 
   UserService.getUsers();
   $scope.findUserById = UserService.findUserById;
+  $scope.findUserImageById = UserService.findUserImageById;
 
 
 }]);

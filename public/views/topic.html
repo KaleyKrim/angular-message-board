@@ -13,6 +13,7 @@
 <br><br>
 <div ng-repeat="message in MessageService.messages" class="threadMessage">
   <div class="messageHeader">
+    <img ng-src="{{ findUserImageById(message.author_id) }}" class="userSpriteSmall">
     <a href="/users/{{ message.author_id }}">{{ findUserById(message.author_id) }} </a>on {{ message.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} :
     <br>
   </div>

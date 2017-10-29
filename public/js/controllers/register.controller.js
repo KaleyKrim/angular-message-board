@@ -5,11 +5,24 @@ angular.module('App')
 
   $scope.newUser = {
     username: '',
-    password: ''
+    password: '',
+    image: ''
   };
 
   $scope.addUser = function(e){
     UserService.addUser($scope.newUser);
+  };
+
+  $scope.pickJelly = function(){
+    $scope.newUser.image = '/assets/jelly.gif';
+  };
+
+  $scope.pickLazy = function(){
+    $scope.newUser.image = '/assets/lazy.gif';
+  };
+
+  $scope.pickStars = function(){
+    $scope.newUser.image = '/assets/stars.gif';
   };
 
 }]);
