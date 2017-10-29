@@ -28,10 +28,13 @@ input[type="text"], input[type="password"], textarea {
   width: 50px;
 }
 
+.usersList{
+  display: flex;
+}
+
 #chooseYourCharacter{
   justify-content: space-around;
   display: flex;
-
 }
 
 #jelly {
