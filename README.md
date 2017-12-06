@@ -1,2 +1,5 @@
 # angular-message-board
-A message board built with AngularJS
+A message board SPA.
+
+Frontend built with AngularJS.
+Backend built with Node, Express, Sequelize, and PostgreSQL.
