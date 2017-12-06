@@ -6,7 +6,7 @@ var app = angular.module('App')
 
   $routeProvider
   .when('/users/:param1', {
-    templateUrl: 'views/user.html',
+    templateUrl: '/views/user.html',
     controller: 'UserController'
   })
   .when('/users', {
