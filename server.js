@@ -13,7 +13,6 @@ const saltRounds = 12;
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
-// const redis = require('connect-redis')(session);
 
 const User = db.user;
 const Message = db.message;
@@ -23,7 +22,6 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.use(session({
-  // store: new redis(),
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false
@@ -97,7 +95,6 @@ function isAuthenticated(req, res, next){
     next();
   }else{
     console.log('Something went wrong...');
-    // res.redirect('/');
   }
 }
 
