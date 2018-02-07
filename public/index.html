@@ -9,15 +9,15 @@
 <body ng-app="App">
   <div id="header">
     <h1>The Round Table</h1>
-    <h2>A place for serious discussions</h2>
+    <h2>A place for serious discussion</h2>
   </div>
   <div id="content">
     <div id="sideBar">
       <div ng-controller="UserLoginController" id = "navBar">
         <ul>
           <li><a ng-href="/">Home</a></li>
-          <li ng-if="loginObject.loggedIn ==='false'"><a ng-href="/register">Register</a></li>
-          <li ng-if="loginObject.loggedIn ==='false'"><a ng-href="/login">Login</a></li>
+          <li ng-if="loginObject.loggedIn ==='false' || !loginObject.loggedIn"><a ng-href="/register">Register</a></li>
+          <li ng-if="loginObject.loggedIn === 'false' || !loginObject.loggedIn"><a ng-href="/login">Login</a></li>
           <li ng-if="loginObject.loggedIn ==='true'"><a href ng-click="logOut()">Logout</a></li>
           <li><a ng-href="/users">Users</a></li>
         </ul>
