@@ -7,42 +7,48 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body ng-app="App">
-
-  <div id="sideBar">
-    <div ng-controller="UserLoginController" id = "navBar">
-      <ul>
-        <li><a ng-href="/">Home</a></li>
-        <li ng-if="loginObject.loggedIn ==='false'"><a ng-href="/register">Register</a></li>
-        <li ng-if="loginObject.loggedIn ==='false'"><a ng-href="/login">Login</a></li>
-        <li ng-if="loginObject.loggedIn ==='true'"><a href ng-click="logOut()">Logout</a></li>
-        <li><a ng-href="/users">Users</a></li>
-      </ul>
-    </div>
-
-    <div ng-controller="TopicsController" id="allTopics">
-      <div>
+  <div id="header">
+    <h1>The Round Table</h1>
+    <h2>A place for serious discussions</h2>
+  </div>
+  <div id="content">
+    <div id="sideBar">
+      <div ng-controller="UserLoginController" id = "navBar">
         <ul>
-          <li id="latestLink"><a ng-href="/latest">Latest Messages</a></li>
-          <br>
-          <div id="subtitle">Browse Topics</div>
-          <li ng-repeat="topic in TopicService.topics">
-            <a href="/topics/{{ topic.id }}">{{ topic.name }}</a>
-          </li>
+          <li><a ng-href="/">Home</a></li>
+          <li ng-if="loginObject.loggedIn ==='false'"><a ng-href="/register">Register</a></li>
+          <li ng-if="loginObject.loggedIn ==='false'"><a ng-href="/login">Login</a></li>
+          <li ng-if="loginObject.loggedIn ==='true'"><a href ng-click="logOut()">Logout</a></li>
+          <li><a ng-href="/users">Users</a></li>
         </ul>
       </div>
-      <div ng-if="loginObject.loggedIn ==='true'" id="createNew">
-        <br>
-        <br>
-        <form>
-          <input type="text" ng-model="newTopic.name" placeholder="TopicName">
-          <button ng-click="addTopic()">Create New Topic</button>
-        </form>
+
+      <div ng-controller="TopicsController" id="allTopics">
+        <div>
+          <ul>
+            <li id="latestLink"><a ng-href="/latest">Latest Messages</a></li>
+            <br>
+            <div id="subtitle">Browse Topics</div>
+            <li ng-repeat="topic in TopicService.topics">
+              <a href="/topics/{{ topic.id }}">{{ topic.name }}</a>
+            </li>
+          </ul>
+        </div>
+        <div ng-if="loginObject.loggedIn ==='true'" id="createNew">
+          <br>
+          <br>
+          <form>
+            <input type="text" ng-model="newTopic.name" placeholder="TopicName">
+            <button ng-click="addTopic()">Create New Topic</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div ng-view id="viewDiv">
-    Loading...
+    <div ng-view id="viewDiv">
+      Loading...
+    </div>
+
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js" type="text/javascript"></script>
