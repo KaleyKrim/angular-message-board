@@ -4,14 +4,21 @@ body{
   font-family: arial;
   font-size: 16px;
   flex-wrap: wrap;
+  background-color: #ccccff;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
 }
 
 #content{
   display: flex;
   width: 100%;
   flex-direction: row;
-  justify-content: space-between;
   height: 100%;
+
 }
 
 h1{
@@ -26,20 +33,30 @@ h1{
   width: 100%;
   line-height: 1px;
   height: 100px;
+  background-color: black;
+  color: white;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 #sideBar{
   display: flex;
   flex-direction: column;
-  margin-left: 2%;
   padding-right: 2%;
-  border-right: solid 1px black;
+  padding-left: 1%;
+  padding-top: 1%;
   width: 15%;
   height: 100%;
 }
 
 #viewDiv{
-  width: 80%;
+  width: 70%;
+  background-color: white;
+  padding: 2%;
 
 }
 
@@ -153,6 +170,7 @@ input[type="text"], input[type="password"], textarea {
 }
 
 a {
+  font-size: 120%;
   text-decoration: none;
   color: #FF009B;
 }
@@ -167,7 +185,7 @@ a:hover{
 }
 
 #allTopics{
-  border-top: dotted 1px black;
+  background-color: black;
 }
 
 #createNew{
