@@ -14,6 +14,8 @@ angular.module('App')
 
   $scope.loginObject = UserService.getLoggedIn();
 
+  $scope.currentUser = UserService.getCurrentUser();
+
   $scope.addMessage = function(e){
     MessageService.addMessage($scope.newMessage);
     $scope.newMessage.body = '';

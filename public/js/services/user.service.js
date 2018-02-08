@@ -73,6 +73,7 @@ angular.module('App')
     .then(function(response) {
       var username = response.data.username;
       localStorage.setItem('loggedIn', true);
+      localStorage.setItem('currentUser', username);
       console.log('loggedin?', localStorage.getItem('loggedIn'));
       $location.path('/');
       $window.location.reload();
@@ -83,6 +84,7 @@ angular.module('App')
     $http.get('/logout')
     .then(function (response){
       localStorage.setItem('loggedIn', false);
+      localStorage.setItem('currentUser', null);
       $location.path('/');
       $window.location.reload();
     });
@@ -92,6 +94,11 @@ angular.module('App')
     var loginStatus = localStorage.getItem('loggedIn');
     var loggedIn = {loggedIn : loginStatus};
     return loggedIn;
+  };
+
+  this.getCurrentUser = function(){
+    var currentUser = localStorage.getItem('currentUser');
+    return currentUser;
   };
 
 }]);

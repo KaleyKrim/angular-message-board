@@ -25,4 +25,12 @@ angular.module('App')
     $scope.newUser.image = '/assets/stars.gif';
   };
 
+  $scope.pickPlaty = function(){
+    $scope.newUser.image = '/assets/platy.gif';
+  };
+
+  $scope.pickKitty = function(){
+    $scope.newUser.image = '/assets/kitty.gif';
+  };
+
 }]);
