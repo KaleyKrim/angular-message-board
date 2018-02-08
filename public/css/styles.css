@@ -9,6 +9,18 @@ body {
     display:table-cell;
 }
 
+button{
+  background-color: #24305e;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 80%;
+}
+
 html, body {
     margin: 0px;
     padding: 0px;
@@ -20,7 +32,7 @@ body{
   height: 100%;
   font-size: 16px;
   flex-wrap: wrap;
-  background-color: #ffcccc;
+  background-color: #a8d0e6;
   position:absolute
   top: 0;
   bottom: 0;
@@ -28,6 +40,7 @@ body{
   right: 0;
   padding: 0;
   margin: 0;
+  color: #24305e;
 }
 
 #header{
@@ -35,8 +48,8 @@ body{
   width: 100%;
   line-height: 1px;
   height: 100px;
-  background-color: white;
-  color:   #ff3366;
+  background-color: #f76c6c;
+  color:  #f8e9a1;
   border-bottom: .25px #cccccc solid;
   z-index: 99;
 }
@@ -49,7 +62,7 @@ h1{
 
 #header h1{
   font-size: 300%;
-  color: black;
+  color: white;
   letter-spacing: 0.1em;
   font-weight: lighter;
 }
@@ -100,7 +113,8 @@ a:hover{
 }
 
 .new-message-form{
-
+  display: flex;
+  justify-content: center;
 }
 
 #user-icon{
@@ -155,10 +169,11 @@ ul{
   margin: 0;
   padding: 0;
 }
-/*
+
 input[type="text"], input[type="password"], textarea {
-  background-color: #E8D4FF;
-}*/
+  background-color: #f8e9a1;
+;
+}
 
 
 #welcomeMessage{
@@ -280,7 +295,7 @@ input[type="text"], input[type="password"], textarea {
 
 a {
   text-decoration: none;
-  color:  black;
+  color:  #24305e;
   font-size: 80%;
   font-variant: normal;
   text-transform: uppercase;
@@ -290,7 +305,7 @@ a {
 }
 
 #viewDiv a{
-  color:  #ff3366;
+  color:  #f76c6c;
 }
 
 
@@ -299,14 +314,6 @@ a {
 }
 
 #allTopics{
-}
-
-
-#giraffe{
-  background: url(/assets/giraffe.gif) no-repeat;
-  background-size: 100%;
-  width: 100px;
-  height: 100px;
 }
 
 #latestList{
