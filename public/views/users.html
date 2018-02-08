@@ -1,7 +1,5 @@
 <div>
   <h1>Message Board Members</h1>
-  <h2>and all their credit card information</h2>
-  <p>lol, j/k</p>
     <div class="usersList" ng-repeat="user in UserService.users | orderBy: 'username'">
       <img ng-src="{{user.image}}" class="userSprite">
       <a href="/users/{{ user.id }}"><h2> {{ user.username }} </h2></a>
