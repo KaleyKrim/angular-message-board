@@ -1,24 +1,14 @@
-# Angular Message Board
-## A message board SPA.
+# The Round Table
+## A message board SPA for extremely serious discussion.
 
-• Front end built with **AngularJS**.
+## Link
+Test it out at http://159.89.147.189/
 
-• Back end built with **Node.js**, **Express.js**, **Sequelize**, and **PostgreSQL**.
+## Tools:
+- Node.js, Express.js, Sequelize, PostgreSQL, Passport.js, AngularJS
 
-
-## Users can:
-
-• register & log in
-
-• create new topics & edit own topics
-
-• post messages in topics
-
-• view a list of 10 most recent messages
-
-• view other users' history
-
-
-# Demo
-
-![Demo](https://github.com/KaleyKrim/angular-message-board/blob/master/screenshots/messageboard1.gif)
+## To run locally:
+- npm install
+- in main dir, touch config dir with config.json for sequelize
+- create psql db with owner matching config
+- node server.js!
