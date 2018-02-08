@@ -1,33 +1,35 @@
-<div>
-  <h1>{{ TopicService.topic.name }}</h1>
-  Created on {{ TopicService.topic.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} by <a href="/users/{{ TopicService.topic.created_by }}">{{ findUserById(TopicService.topic.created_by) }}</a>
+<div class="topic-page">
+  <div>
+    <h1>{{ TopicService.topic.name }}</h1>
+    Created on {{ TopicService.topic.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} by <a href="/users/{{ TopicService.topic.created_by }}">{{ findUserById(TopicService.topic.created_by) }}</a>
 
-  <button ng-click="openEditForm()" ng-if="loginObject.loggedIn === 'true'">Edit Topic</button>
+    <button ng-click="openEditForm()" ng-if="loginObject.loggedIn === 'true'">Edit Topic</button>
 
-  <form ng-if="editForm === 'true'">
-    <input type="text" ng-model="editedTopic.name" placeholder="New topic name">
-    <button ng-click="editTopic()">Submit Changes</button>
-  </form>
+    <form ng-if="editForm === 'true'">
+      <input type="text" ng-model="editedTopic.name" placeholder="New topic name">
+      <button ng-click="editTopic()">Submit Changes</button>
+    </form>
 
-</div>
-<br><br>
-<div ng-repeat="message in MessageService.messages" class="threadMessage">
-  <div class="messageHeader">
-    <img ng-src="{{ findUserImageById(message.author_id) }}" class="userSpriteSmall">
-    <a href="/users/{{ message.author_id }}">{{ findUserById(message.author_id) }} </a>on {{ message.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} :
-    <br>
   </div>
-  <div class="messageBody">
-    {{ message.body }}
+  <br><br>
+  <div ng-repeat="message in MessageService.messages" class="threadMessage">
+    <div class="messageHeader">
+      <img ng-src="{{ findUserImageById(message.author_id) }}" class="userSpriteSmall">
+      <a href="/users/{{ message.author_id }}">{{ findUserById(message.author_id) }} </a>on {{ message.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} :
+      <br>
+    </div>
+    <div class="messageBody">
+      {{ message.body }}
+    </div>
   </div>
+  <br><br>
+  <div class="new-message-form" ng-if="loginObject.loggedIn === 'true'">
+    <form>
+      <textarea ng-model="newMessage.body" rows="6" cols="120">Message body</textarea>
+      <br>
+      <button id="postMessage" ng-click="addMessage()">Post Message to Thread</button>
+    </form>
+  </div>
+  <br>
+  <div id="pleaseLogin" ng-if="loginObject.loggedIn === 'false'">Please <a ng-href="/login">log in</a> or <a ng-href="/register">register a new account</a> to post a message to this topic!</div>
 </div>
-<br><br>
-<div ng-if="loginObject.loggedIn === 'true'">
-  <form>
-    <textarea ng-model="newMessage.body" rows="6" cols="120">Message body</textarea>
-    <br>
-    <button id="postMessage" ng-click="addMessage()">Post Message to Thread</button>
-  </form>
-</div>
-<br>
-<div id="pleaseLogin" ng-if="loginObject.loggedIn === 'false'">Please <a ng-href="/login">log in</a> or <a ng-href="/register">register a new account</a> to post a message to this topic!</div>
