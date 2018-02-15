@@ -44,7 +44,6 @@ body{
 }
 
 #header{
-  text-align: center;
   width: 100%;
   line-height: 1px;
   height: 100px;
@@ -57,10 +56,12 @@ body{
 h1{
   font-weight: lighter;
   letter-spacing: 0.1em;
-
 }
 
 #header h1{
+  margin-left: 2%;
+  padding-top: 1%;
+  font-family: 'Pacifico', cursive;
   font-size: 300%;
   color: white;
   letter-spacing: 0.1em;
@@ -68,6 +69,7 @@ h1{
 }
 
 #header h2{
+  margin-left: 4%;
   font-weight: lighter;
   font-size: 100%;
   letter-spacing: 0.1em;
