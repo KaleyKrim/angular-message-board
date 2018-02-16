@@ -78,7 +78,7 @@ h1{
 #sideBar{
   display: flex;
   flex-direction: column;
-  padding-right: 2%;
+  padding-right: 1%;
   padding-left: 1%;
   padding-top: 1%;
   width: 15%;
@@ -102,15 +102,23 @@ h1{
 #topic-list{
   margin-top: 1%;
   min-height: 200px;
+  width: 100%;
   background-color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+#topic-list li{
+  font-color: #f76c6c;
+  padding-left: 5%;
 }
 
 #topic-list a{
   color: #f76c6c;
   text-transform: none;
+  font-weight: bold;
 }
 
 .item{
@@ -159,6 +167,11 @@ a:hover{
 #subtitle{
   letter-spacing: 0.1em;
   font-weight: lighter;
+  font-size: 120%;
+}
+
+#inner-sidebar{
+  width: 100%;
 }
 
 #navBar{
