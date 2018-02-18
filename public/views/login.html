@@ -1,8 +1,13 @@
-<div class="loginReg">
-  <h1>Don't be shy! Log in! :)</h1>
+<div class="main-content">
+  <div class="profile-header">
+    <h1>Don't be shy! Log in! :)</h1>
+  </div>
   <br><br><br><br>
-  <form>
-    <input type="text" ng-model="userDetails.username" placeholder="Username"><input type="password" ng-model="userDetails.password" placeholder="Password">
-    <button ng-click="login()">Log me in!!</button>
-  </form>
+  <div id="login-form">
+    <form>
+      <input type="text" ng-model="userDetails.username" placeholder="Username">
+      <input type="password" ng-model="userDetails.password" placeholder="Password">
+      <button ng-click="login()">Log me in!!</button>
+    </form>
+  </div>
 </div>

@@ -13,6 +13,12 @@ body {
   border: solid 1px #FF5C9B;
 }
 
+#login-form{
+  width: 45%;
+  margin: auto;
+}
+
+
 #fruit{
   background: url(/assets/fruit.jpg) no-repeat;
   background-size: 100%;
