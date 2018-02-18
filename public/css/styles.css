@@ -13,6 +13,14 @@ body {
   border: solid 1px #FF5C9B;
 }
 
+#fruit{
+  background: url(/assets/fruit.jpg) no-repeat;
+  background-size: 100%;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+}
+
 #logo{
   background: url(/assets/logo.png) no-repeat;
   background-size: 100%;
