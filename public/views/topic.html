@@ -13,7 +13,6 @@
     </form>
 
   </div>
-  <br><br>
   <div ng-repeat="message in MessageService.messages" class="threadMessage">
     <div class="messageHeader">
       <img ng-src="{{ findUserImageById(message.author_id) }}" class="userSpriteSmall">
