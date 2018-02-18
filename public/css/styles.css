@@ -85,9 +85,24 @@ body{
 
 #login-logout{
   position:fixed;
-  left:1%;
-  bottom:20px;
+  left:0;
+  padding-left: 5%;
+  padding-bottom: 1%;
+  bottom:0px;
   width:100%;
+  background-color: #add8c4;
+}
+
+#login-logout a{
+  color: white;
+}
+
+#login-logout a:hover{
+  text-decoration: underline;
+}
+
+#login-logout li{
+  margin-bottom: 2px;
 }
 
 #topic-list{
@@ -124,21 +139,6 @@ body{
   margin-top: 20px;
   margin-bottom: 10px;
 }
-
-/*.item::after {
-    content: "";
-    display: block;
-    position: absolute;
-    margin-top: 10px;
-    left: 6.7%;
-    width: 50px;
-    height: 1px;
-    background-color: #add8c4;
-}
-
-*::after {
-    box-sizing: border-box;
-}*/
 
 #top-nav{
   justify-content: center;
