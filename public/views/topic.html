@@ -1,7 +1,7 @@
-<div class="topic-page">
+<div class="main-content">
   <div>
     <h1>{{ TopicService.topic.name }}</h1>
-    Created on {{ TopicService.topic.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} by <a href="/users/{{ TopicService.topic.created_by }}">{{ findUserById(TopicService.topic.created_by) }}</a>
+    Posted on {{ TopicService.topic.createdAt | date:"MMM d, y 'at' h:mm:ss a" }} by <a href="/users/{{ TopicService.topic.created_by }}">{{ findUserById(TopicService.topic.created_by) }}</a>
 
     <div ng-if="currentUser.toLowerCase() === (findUserById(TopicService.topic.created_by)).toLowerCase()" id="createNew">
       <button ng-click="openEditForm()" ng-if="loginObject.loggedIn === 'true'">Edit Topic</button>
@@ -32,6 +32,7 @@
       <button id="postMessage" ng-click="addMessage()">Post Message to Thread</button>
     </form>
   </div>
-  <br>
-  <div id="pleaseLogin" ng-if="loginObject.loggedIn === 'false'">Please <a ng-href="/login">log in</a> or <a ng-href="/register">register a new account</a> to post a message to this topic!</div>
+  <div id="pleaseLogin" ng-if="loginObject.loggedIn === 'false'">
+    Please <a ng-href="/login">log in</a> or <a ng-href="/register">register a new account</a> to post a message to this topic!
+  </div>
 </div>

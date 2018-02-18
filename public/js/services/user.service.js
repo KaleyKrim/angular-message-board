@@ -7,6 +7,7 @@ angular.module('App')
 
   this.users = [];
   this.user = [];
+  this.selectedCharacter = '';
 
 
   this.getUsers = function(){
@@ -99,6 +100,16 @@ angular.module('App')
   this.getCurrentUser = function(){
     var currentUser = localStorage.getItem('currentUser');
     return currentUser;
+  };
+
+  this.pickCharacter = function(elementId){
+    var char = document.getElementById(elementId);
+    if(self.selectedCharacter !== ''){
+      self.selectedCharacter.classList.remove('selected');
+    }
+    self.selectedCharacter = char;
+    self.selectedCharacter.classList.add('selected');
+    return `/assets/${elementId}.gif`;
   };
 
 }]);

@@ -5,27 +5,31 @@
   <title>The Round Table</title>
   <base href="/">
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body ng-app="App">
   <div id="header">
-    <h1>The Round Table</h1>
-    <h2>A place for extremely serious discussion</h2>
+    <a ng-href="/"><div id="logo"></div></a>
   </div>
   <div id="content">
     <div id="sideBar">
       <div ng-controller="TopicsController" id="allTopics">
         <div id="inner-sidebar">
+          <div id="top-nav">
+            <a ng-href="/"><div class="item">Home</div></a>
+            <div class="bar"></div>
+            <a ng-href="/users"><div class="item">Users</div></a>
+            <div class="bar"></div>
+            <a ng-href="/latest"><div class="item">Latest Messages</div></a>
+            <div class="bar"></div>
+          </div>
           <ul>
-            <li><div class="item"><div id="home-icon"></div><a ng-href="/">Home</a></div></li>
-            <li><div class="item"><div id="user-icon"></div><a ng-href="/users">Users</a></div></li>
-            <li id="latestLink"><div class="item"><div id="latest-icon"></div><a ng-href="/latest">Latest Messages</a></div></li>
-            <br>
             <div id="subtitle">Browse Topics</div>
             <div id="topic-list">
-              <li ng-repeat="topic in TopicService.topics">
+              <div class="single-topic" ng-repeat="topic in TopicService.topics">
                 <a href="/topics/{{ topic.id }}">{{ topic.name }}</a>
-              </li>
+              </div>
             </div>
           </ul>
         </div>
@@ -33,12 +37,12 @@
           <br>
           <br>
           <form>
-            <input type="text" ng-model="newTopic.name" placeholder="TopicName">
-            <button ng-click="addTopic()">Create New Topic</button>
+            <input type="text" ng-model="newTopic.name" placeholder="Topic Title">
+            <button ng-click="addTopic()">Post Topic</button>
           </form>
         </div>
       </div>
-      <div ng-controller="UserLoginController" id = "navBar">
+      <div ng-controller="UserLoginController" id ="login-logout">
         <ul>
           <li ng-if="loginObject.loggedIn ==='false' || !loginObject.loggedIn"><a ng-href="/register">Register</a></li>
           <li ng-if="loginObject.loggedIn === 'false' || !loginObject.loggedIn"><a ng-href="/login">Login</a></li>

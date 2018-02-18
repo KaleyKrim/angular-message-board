@@ -1,7 +1,12 @@
-<div>
-  <h1>Message Board Members</h1>
-    <div class="usersList" ng-repeat="user in UserService.users | orderBy: 'username'">
-      <img ng-src="{{user.image}}" class="userSprite">
-      <a href="/users/{{ user.id }}"><h2> {{ user.username }} </h2></a>
+<div class="main-content">
+  <div class="profile-header">
+    <h1>Message Board Members</h1>
+  </div>
+    <div class="user-list" ng-repeat="user in UserService.users | orderBy: 'username'">
+      <a href="/users/{{ user.id }}">
+        <div class="user-link">
+          {{ user.username }}
+        </div>
+      </a>
     </div>
 </div>

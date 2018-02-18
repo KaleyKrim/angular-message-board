@@ -1,16 +1,17 @@
-<div>
-  <div class="userSpriteDiv">
-    <img ng-src="{{UserService.user.image}}" class="userSprite">
-    <h1>{{ UserService.user.username }}</h1>
+<div class="main-content">
+  <div class="profile-header">
+    <img ng-src="{{UserService.user.image}}" class="user-sprite">
+    <h1>{{ UserService.user.username }}'s Profile Page</h1>
   </div>
-  <br>
-  Joined on {{ UserService.user.createdAt | date:"MMM d, y 'at' h:mm:ss a" }}
-</div>
-<div>
-  <h2>Message History</h2>
-  <ul>
-    <li ng-repeat="message in MessageService.authorMessages">
-      Posted on <a href="/topics/{{ message.topic_id }}"> {{ getTopicNameById(message.topic_id) }} </a> on {{ message.createdAt | date:"MMM d, y 'at' h:mm:ss a" }}
-    </li>
-  </ul>
+  <div class="date">
+    {{ UserService.user.username }} joined The Round Table on {{ UserService.user.createdAt | date:"MMM d, y 'at' h:mm:ss a" }}
+  </div>
+  <div class="message-history">
+    <div class="profile-header"><h1>Message History</h1></div>
+    <ul>
+      <li ng-repeat="message in MessageService.authorMessages">
+        Posted on <a href="/topics/{{ message.topic_id }}"> {{ getTopicNameById(message.topic_id) }} </a> on {{ message.createdAt | date:"MMM d, y 'at' h:mm:ss a" }}
+      </li>
+    </ul>
+  </div>
 </div>

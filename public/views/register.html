@@ -1,19 +1,22 @@
-<div class="loginReg">
-  <h1>Register an account!</h1>
-  <br><br><br><br>
+<div class="main-content">
+  <div class="loginReg">
+    <h1>Register an account!</h1>
+    <br><br><br><br>
 
-  Step 1: Click on an image to select your user icon.
-  <div id="chooseYourCharacter">
-    <div id="jelly" ng-click = "pickJelly()"></div>
-    <div id="lazy" ng-click="pickLazy()"></div>
-    <div id="stars" ng-click="pickStars()"></div>
-    <div id="platy" ng-click="pickPlaty()"></div>
-    <div id="kitty" ng-click="pickKitty()"></div>
+    Step 1: Click on an image to select your user icon.
+    <div id="chooseYourCharacter">
+      <div id="jelly" ng-click = "pickJelly()"></div>
+      <div id="lazy" ng-click="pickLazy()"></div>
+      <div id="stars" ng-click="pickStars()"></div>
+      <div id="platy" ng-click="pickPlaty()"></div>
+      <div id="kitty" ng-click="pickKitty()"></div>
+    </div>
+    <br><br>
+    Step 2: Enter your desired username and password.
+    <form>
+      <input type="text" ng-model="newUser.username" placeholder="Username"><input type="password" ng-model="newUser.password" placeholder="Password">
+      <button ng-click="addUser()">Register New User</button>
+    </form>
   </div>
-  <br><br>
-  Step 2: Enter your desired username and password.
-  <form>
-    <input type="text" ng-model="newUser.username" placeholder="Username"><input type="password" ng-model="newUser.password" placeholder="Password">
-    <button ng-click="addUser()">Register New User</button>
-  </form>
+
 </div>

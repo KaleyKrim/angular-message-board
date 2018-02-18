@@ -14,23 +14,25 @@ angular.module('App')
   };
 
   $scope.pickJelly = function(){
-    $scope.newUser.image = '/assets/jelly.gif';
+    $scope.newUser.image = UserService.pickCharacter('jelly');
   };
 
   $scope.pickLazy = function(){
-    $scope.newUser.image = '/assets/lazy.gif';
+    $scope.newUser.image = UserService.pickCharacter('lazy');
   };
 
   $scope.pickStars = function(){
-    $scope.newUser.image = '/assets/stars.gif';
+    $scope.newUser.image = UserService.pickCharacter('stars');
   };
 
   $scope.pickPlaty = function(){
-    $scope.newUser.image = '/assets/platy.gif';
+    $scope.newUser.image = UserService.pickCharacter('platy');
   };
 
   $scope.pickKitty = function(){
-    $scope.newUser.image = '/assets/kitty.gif';
+    $scope.newUser.image = UserService.pickCharacter('kitty');
   };
+
+
 
 }]);
